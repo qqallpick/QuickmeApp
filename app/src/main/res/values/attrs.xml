@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="FileSelectButton">
+        <attr name="output_button" format="boolean"/>
+        <attr name="minimized" format="boolean"/>
+    </declare-styleable>
+    <declare-styleable name="IconAttributionView">
+        <attr name="icon_src" format="reference"/>
+        <attr name="creator_name" format="string"/>
+        <attr name="creator_link" format="string"/>
+        <attr name="src_name" format="string"/>
+        <attr name="src_link" format="string"/>
+        <attr name="tint_grey" format="boolean"/>
+        <attr name="license_name" format="string"/>
+        <attr name="license_link" format="string"/>
+    </declare-styleable>
+</resources>

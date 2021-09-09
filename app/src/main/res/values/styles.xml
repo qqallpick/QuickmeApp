@@ -1,0 +1,62 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here.-->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="AppThemeDark" parent="AppTheme" >
+        <item name="colorPrimary">@color/darkThemeColorPrimary</item>
+        <item name="colorPrimaryDark">@color/darkThemeColorPrimaryDark</item>
+        <item name="android:colorControlNormal">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/darkThemeBackground</item>
+        <item name="android:textColorPrimary">@color/darkThemeTextColor</item>
+        <item name="android:textColorHint">@color/darkThemeTextColorHint</item>
+    </style>
+    <style name="DarkAlertDialogTheme" parent="Base.Theme.AppCompat.Dialog.Alert">
+        <item name="android:textColorPrimary">@color/darkThemeTextColor</item>
+        <item name="android:background">@color/darkThemeBackground</item>
+    </style>
+    <style name="DialogButton" parent="Widget.AppCompat.Button.ButtonBar.AlertDialog">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="PasswordEditText" parent="Widget.AppCompat.EditText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:inputType">text</item>
+        <item name="android:layout_marginStart">-5dp</item>
+        <item name="android:layout_marginEnd">-5dp</item>
+        <item name="android:layout_marginTop">28dp</item>
+    </style>
+
+    <style name="FilePathTextView">
+        <item name="android:textColor">#000</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:visibility">gone</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_marginStart">8dp</item>
+        <item name="android:paddingEnd">8dp</item>
+    </style>
+
+    <style name="FilePathUnderlineView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1.5dp</item>
+        <item name="android:background">@color/colorAccent</item>
+        <item name="android:visibility">invisible</item>
+    </style>
+</resources>
