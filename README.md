@@ -3,7 +3,7 @@
 
 快密（Quickme）
 
-开源地址Github：https://github.com/qqallpick/quickme
+开源地址Github：https://github.com/qqallpick/quickmeapp
 
 使用说明：https://www.zsuuu.com/?p=1305
 
