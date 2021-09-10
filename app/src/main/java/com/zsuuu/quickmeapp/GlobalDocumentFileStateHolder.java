@@ -1,23 +1,17 @@
-package com.dewdrop623.androidcrypt;
+package com.zsuuu.quickmeapp;
 
 import android.support.v4.provider.DocumentFile;
 
-/**
- * GlobalDocumentFileStateHolder holds the state of DocumentFile objects throughout the application.
- * This is necessary because there is no reliable way to recover a DocumentFile from its Uri string.
- */
+ 
 
 public class GlobalDocumentFileStateHolder {
-    //used by MainActivityFragment
-    private static DocumentFile savedInputParentDirectoryForRotate = null;
+         private static DocumentFile savedInputParentDirectoryForRotate = null;
     private static DocumentFile savedOutputParentDirectoryForRotate = null;
 
-    //used by FilePicker
-    private static DocumentFile savedCurrentDirectoryForRotate = null;
+         private static DocumentFile savedCurrentDirectoryForRotate = null;
     private static DocumentFile initialFilePickerDirectory = null;
 
-    //used to get rw access to files for encryption
-    private static DocumentFile inputFileParentDirectory = null;
+         private static DocumentFile inputFileParentDirectory = null;
     private static DocumentFile outputFileParentDirectory = null;
 
 

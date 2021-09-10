@@ -1,6 +1,5 @@
-package com.dewdrop623.androidcrypt;
+package com.zsuuu.quickmeapp;
 
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -14,9 +13,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
-/**
- * Settings Fragment contains the settings page UI.
- */
+ 
 public class SettingsFragment extends Fragment {
 
     private TextView sdCardTextView;
@@ -70,7 +67,7 @@ public class SettingsFragment extends Fragment {
             sdCardEditButton.setOnClickListener(sdCardEditButtonOnClickListener);
         }
 
-        /*update ui to match theme preferences*/
+         
         if (SettingsHelper.getUseDarkTeme(getContext())) {
             int textColor = ((MainActivity)getActivity()).getDarkThemeColor(android.R.attr.textColorPrimary);
             ((RadioButton) aescryptVersionRadioGroup.findViewById(R.id.version1RadioButton)).setTextColor(textColor);

@@ -1,6 +1,5 @@
-package com.dewdrop623.androidcrypt;
+package com.zsuuu.quickmeapp;
 
-import android.app.Activity;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
@@ -37,24 +36,16 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.lang.reflect.Array;
 import java.math.BigInteger;
-import java.security.SecureRandom;
 import java.util.Arrays;
 import java.util.Random;
 
-/**
- * A placeholder fragment containing a simple view.
- */
+
 public class MainActivityFragment extends Fragment implements CryptoThread.ProgressDisplayer {
 
     public static final String CALLBACK_SELECT_OUTPUT_FILE = "com.dewdrop623.androidcrypt.MainActivityFragment.CALLBACK_SELECT_OUTPUT_FILE";
     public static final String CALLBACK_SELECT_INPUT_FILE = "com.dewdrop623.androidcrypt.MainActivityFragment.CALLBACK_SELECT_INPUT_FILE";
 
-    /*
-        Using static variables to store the password rather than savedInstanceState and Intent extras because of paranoia.
-        Putting the password as a String into the Android OS that way seems like asking for trouble.
-     */
     private static char[] password = null;
 
     private static final int SELECT_INPUT_FILE_REQUEST_CODE = 623;
@@ -69,7 +60,7 @@ public class MainActivityFragment extends Fragment implements CryptoThread.Progr
     private static final String SAVED_INSTANCE_STATE_OUTPUT_FILENAME = "com.dewdrop623.androidcrypt.MainActivityFragment.SAVED_INSTANCE_STATE_OUTPUT_FILENAME";
     private static final String SAVED_INSTANCE_STATE_DELETE_INPUT_FILE = "com.dewdrop623.androidcrypt.MainActivityFragment.SAVED_INSTANCE_STATE_DELETE_INPUT_FILE";
 
-    //stores the type of operation to be done
+
     private boolean operationMode = CryptoThread.OPERATION_TYPE_ENCRYPTION;
     private boolean showPassword = false;
     private DocumentFile inputFileParentDirectory = null;
@@ -77,7 +68,7 @@ public class MainActivityFragment extends Fragment implements CryptoThread.Progr
     private DocumentFile outputFileParentDirectory = null;
     String outputFileName;
     private boolean deleteInputFile = false;
-    //see comment on this.onAttach(Context)
+
     private Context context;
 
     private Button encryptModeButton;
@@ -187,21 +178,18 @@ public class MainActivityFragment extends Fragment implements CryptoThread.Progr
 
         checkPermissions();
 
-        //Hide the keyboard that automatically pops up.
+
         getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
         updateUI(savedInstanceState);
 
         CryptoThread.registerForProgressUpdate(PROGRESS_DISPLAYER_ID, this);
 
-        //Check if there is an operation in progress. If there is, get an update show the progress bar and cancel button immediately, rather than waiting for CryptoThread to push an update.
         if (CryptoThread.operationInProgress) {
             update(CryptoThread.getCurrentOperationType(), CryptoThread.getProgressUpdate(), CryptoThread.getCompletedMessageStringId(), -1, -1);
         }
 
-        /*
-        * Apply theme preferences to ui
-        * */
+
         if (SettingsHelper.getUseDarkTeme(getContext())) {
             int textColor = ((MainActivity)getActivity()).getDarkThemeColor(android.R.attr.textColorPrimary);
             deleteInputFileCheckbox.setTextColor(textColor);
@@ -220,17 +208,12 @@ public class MainActivityFragment extends Fragment implements CryptoThread.Progr
         return view;
     }
 
-    //Store the current state when MainActivityFragment is added to back stack.
-    //onCreateView will be called when the MainActivityFragment is displayed again
-    //onSaveInstance state WILL NOT do this when the view is hidden
     @Override
     public void onPause() {
         super.onPause();
     }
 
-    /*
-    * Let MainActivity know that the user has returned to this fragment.
-    * */
+
     @Override
     public void onResume() {
         super.onResume();
@@ -262,20 +245,14 @@ public class MainActivityFragment extends Fragment implements CryptoThread.Progr
         return false;
     }
 
-    /*
-    * Apparently there is a bug in Android that causes getActivity()/getContext() to return null sometimes (after a rotate in this case).
-    * This is a workaround.
-    */
+
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
         this.context = context;
     }
 
-    /*
-    * Implementation of ProgressDisplayer interface. Called by CryptoThread to show progress.
-    * Has to be done on the gui thread.
-     */
+
     @Override
     public void update(final boolean operationType, final int progress, final int completedMessageStringId, final int minutesToCompletion, final int secondsToCompletion) {
         final Context context = getContext();
@@ -315,8 +292,7 @@ public class MainActivityFragment extends Fragment implements CryptoThread.Progr
 
 
 
-//                <!--以下是修改的代码，加入非对称加密RSA，传递生成的固定密钥-->
-    //清除按钮1和2
+     //清除按钮1和2
     private View.OnClickListener qingchuotherNOnClickListener= new View.OnClickListener(){
         @Override
         public void onClick(View view) {
@@ -726,20 +702,13 @@ public class MainActivityFragment extends Fragment implements CryptoThread.Progr
         }
     };
 
-    /**
-     * Show the FilePicker fragment so the user can pick a file.
-     * Open the file picker in the same folder that an already picked input file came from.
-     */
+
     public void selectInputFile() {
         String initialFolder = null;
         ((MainActivity) getActivity()).pickFile(false, inputFileParentDirectory, null);
     }
 
-    /**
-     * Open the FilePicker fragment so the user can pick an output file.
-     * if an output file has previously been selected open its directory.
-     * else if an input file has already been selected open that directory.
-     */
+
     public void selectOutputFile() {
         DocumentFile initialFolder = outputFileParentDirectory;
         if (initialFolder == null) {
@@ -761,10 +730,7 @@ public class MainActivityFragment extends Fragment implements CryptoThread.Progr
         }
     }
 
-    /*
-    * Set the inputFileParentDirectory (isOutput == false) or outputFileParentDirectory (isOutput == true) member variable and change UI of the file select buttons.
-    * Pass null to clear the uri value and reset ui.
-     */
+
     private void updateFileUI(boolean isOutput) {
         String filePath;
         TextView filePathTextView;
@@ -806,12 +772,10 @@ public class MainActivityFragment extends Fragment implements CryptoThread.Progr
         filePathLinearLayout.setGravity(gravity);
     }
 
-    /**
-     * called by MainActivity when the Floating Action Button is pressed.
-     */
+
     public void actionButtonPressed() {
         if (isValidElsePrintErrors()) {
-            //Can't use getContext() or getActivity(). See comment on this.onAttach(Context)
+
             Intent intent = new Intent(context, CryptoService.class);
             intent.putExtra(CryptoService.INPUT_FILE_NAME_EXTRA_KEY, inputFileName);
             intent.putExtra(CryptoService.OUTPUT_FILE_NAME_EXTRA_KEY, outputFileName);
@@ -827,23 +791,18 @@ public class MainActivityFragment extends Fragment implements CryptoThread.Progr
         }
     }
 
-    //check for the necessary permissions. destroy and recreate the activity if permissions are asked for so that the files (which couldn't be seen previously) will be displayed
-    private void checkPermissions() {
+   private void checkPermissions() {
         if (ContextCompat.checkSelfPermission(context, android.Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED) {
             ActivityCompat.requestPermissions(getActivity(), new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE}, WRITE_FILE_PERMISSION_REQUEST_CODE);
         }
     }
 
-    /*
-    * Display an error to the user via toast.
-    * */
+
     private void showError(String error) {
         Toast.makeText(context, error, Toast.LENGTH_SHORT).show();
     }
 
-    /*
-    * Display an error to the user via toast.
-    * */
+
     private void showError(int stringId) {
         showError(context.getString(stringId));
     }
@@ -859,15 +818,11 @@ public class MainActivityFragment extends Fragment implements CryptoThread.Progr
         passwordEditText.setInputType(inputType);
         confirmPasswordEditText.setInputType(inputType);
 
-        //Fix the typeface. Android wants to change it to a monospace font everytime showPassword is set to false. This makes the edittext hint change appearance... and it looks ugly.
         passwordEditText.setTypeface(Typeface.DEFAULT);
         confirmPasswordEditText.setTypeface(Typeface.DEFAULT);
     }
 
-    /**
-     * Makes encryption mode active.
-     * Shows the confirm password entry field, changes the member variable operationMode, updates appearance of operation mode buttons, and changes the icon on the Floating Action Button
-     */
+
     private void enableEncryptionMode() {
         changeOperationTypeButtonAppearance(R.drawable.operation_mode_button_selected, R.drawable.operation_mode_button_selector);
         operationMode = CryptoThread.OPERATION_TYPE_ENCRYPTION;
@@ -877,10 +832,7 @@ public class MainActivityFragment extends Fragment implements CryptoThread.Progr
         ((MainActivity) getActivity()).setFABIcon(R.drawable.ic_lock);
     }
 
-    /**
-     * Makes decryption mode active.
-     * Hides the confirm password entry field, changes the member variable operationMode, updates appearance of operation mode buttons, and changes the icon on the Floating Action Button
-     */
+
     private void enableDecryptionMode() {
         changeOperationTypeButtonAppearance(R.drawable.operation_mode_button_selector, R.drawable.operation_mode_button_selected);
         operationMode = CryptoThread.OPERATION_TYPE_DECRYPTION;
@@ -890,21 +842,14 @@ public class MainActivityFragment extends Fragment implements CryptoThread.Progr
         ((MainActivity) getActivity()).setFABIcon(R.drawable.ic_unlock);
     }
 
-    /*
-    * Used to change the highlighting on the buttons when changing between encryption and decryption modes.
-     */
+
     private void changeOperationTypeButtonAppearance(int encryptionDrawableId, int decryptionDrawableId) {
         encryptModeButton.setBackground(ResourcesCompat.getDrawable(getResources(), encryptionDrawableId, null));
         decryptModeButton.setBackground(ResourcesCompat.getDrawable(getResources(), decryptionDrawableId, null));
     }
 
 
-    /*return the default output filename based on the inputFileParentDirectory.
-    *if inputFileParentDirectory is null, returns null.
-    * if in encryption mode, append '.aes' to filename.
-    * if in decryption mode, and input filename ends with '.aes', remove '.aes'
-    * if in decryption mode and input filename does not end with '.aes', return empty string*/
-    private String getDefaultOutputFileName() {
+   private String getDefaultOutputFileName() {
         String result = null;
         if (inputFileName != null) {
             String fileName = inputFileName;
@@ -921,10 +866,7 @@ public class MainActivityFragment extends Fragment implements CryptoThread.Progr
         return result;
     }
 
-    /*
-    * returns true if the crypto operation can proceed and false otherwise.
-    * displays messages about any issues to the user
-     */
+
     private boolean isValidElsePrintErrors() {
         boolean valid = true;
         if (inputFileParentDirectory == null || inputFileName == null) {
@@ -946,11 +888,7 @@ public class MainActivityFragment extends Fragment implements CryptoThread.Progr
         return valid;
     }
 
-    /*
-    * Get the password as a String and overwrite it in memory.
-    * Overwriting the char[] here may be useless since the EditText returns the password as a String and AESCrypt requires it as a String,
-    * but there isn't a good reason not to.
-     */
+
     public static String getAndClearPassword() {
         if (MainActivityFragment.password == null) {
             return null;
@@ -961,12 +899,7 @@ public class MainActivityFragment extends Fragment implements CryptoThread.Progr
         return password;
     }
 
-    /*
-    * Create a bundle that stores the state of MainActivityFragment and set MainActivityFragment.password
-    * If used in onSaveInstanceState: preserve whatever values Android may put in the outState bundle already by passing it in as systemOutStateBundle
-    * If not called from onSaveInstanceState: pass null for systemOutStateBundle
-    * Sets the static char[] to the password in passwordEditText.
-     */
+
     private Bundle createOutStateBundle(Bundle systemOutStateBundle) {
         Bundle outState;
         if (systemOutStateBundle == null) {
@@ -986,18 +919,13 @@ public class MainActivityFragment extends Fragment implements CryptoThread.Progr
             outState.putString(SAVED_INSTANCE_STATE_OUTPUT_FILENAME, outputFileName);
         }
 
-        /*
-         * may not be able to get password from view if screen was rotated while viewing another fragment.
-         */
+
         if (passwordEditText != null) {
             MainActivityFragment.password = passwordEditText.getText().toString().toCharArray();
         }
         return outState;
     }
 
-    /*
-    * Update the UI to match the member variables and/or savedInstanceState
-    * */
     private void updateUI(Bundle savedInstanceState) {
         if (savedInstanceState == null) {
             savedInstanceState = new Bundle();

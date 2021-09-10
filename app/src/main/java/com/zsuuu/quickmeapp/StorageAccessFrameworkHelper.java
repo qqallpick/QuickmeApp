@@ -1,4 +1,4 @@
-package com.dewdrop623.androidcrypt;
+package com.zsuuu.quickmeapp;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
@@ -22,9 +22,7 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * StorageAccessFrameworkHelper provides an interface to the StorageAccessFramework.
- */
+ 
 
 public final class StorageAccessFrameworkHelper {
 
@@ -57,15 +55,7 @@ public final class StorageAccessFrameworkHelper {
         if (newFile.getParentFile().canWrite()) {
             outputStream = new FileOutputStream(newFile);
         } else {
-            /**
-             * The newFile is probably on the SD Card.
-             *
-             * Split the file path into its individual parts and use that combined with the
-             * DocumentFile to find the correct directory to write in.
-             * If the SD Card's name is not in the path, throw an exception.
-             * If DocumentFile.listFiles() does not contain the folders in newFile's path, throw an exception
-             * Very ugly, but it works.
-             */
+             
             String uriString = SettingsHelper.getSdcardRoot(context);
             if (uriString == null) {
                 if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
@@ -114,10 +104,7 @@ public final class StorageAccessFrameworkHelper {
         }
     }
 
-    /**
-     * Search the mountpoints of external storage for the name of the SD card.
-     * If not found, return null.
-     */
+     
     public static String findLikelySDCardPathFromSDCardName(Context context, String sdCardName) {
         if (sdCardName != null) {
             String[] externalStorageDirs = getExternalStorageDirectories(context);
@@ -130,14 +117,12 @@ public final class StorageAccessFrameworkHelper {
         return null;
     }
 
-    /* returns external storage paths (directory of external memory card) as array of Strings
-    * thank you stack overflow*/
+     
     private static String[] getExternalStorageDirectories(Context context) {
 
         List<String> results = new ArrayList<>();
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) { //Method 1 for KitKat & above
-            File[] externalDirs = context.getExternalFilesDirs(null);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {              File[] externalDirs = context.getExternalFilesDirs(null);
 
             for (File file : externalDirs) {
                 String path = file.getPath().split("/Android")[0];
@@ -156,14 +141,11 @@ public final class StorageAccessFrameworkHelper {
             }
         }
 
-        if (results.isEmpty()) { //Method 2 for all versions
-            // better variation of: http://stackoverflow.com/a/40123073/5002496
-            String output = "";
+        if (results.isEmpty()) {                           String output = "";
             try {
                 ProcessBuilder processBuilder = new ProcessBuilder().command("sh", "-c", "mount | grep /dev/block/vold");
                 final Process process = processBuilder.redirectErrorStream(true).start();
-                /*final Process process = new ProcessBuilder().command("")
-                        .redirectErrorStream(true).start();*/
+                 
                 process.waitFor();
                 final InputStream is = process.getInputStream();
                 final byte[] buffer = new byte[1024];
@@ -185,22 +167,7 @@ public final class StorageAccessFrameworkHelper {
             }
         }
 
-        //Below few lines is to remove paths which may not be external memory card, like OTG (feel free to comment them out)
-        /*if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            for (int i = 0; i < results.size(); i++) {
-                if (!results.get(i).toLowerCase().matches(".*[0-9a-f]{4}[-][0-9a-f]{4}")) {
-                    Log.d(LOG_TAG, results.get(i) + " might not be extSDcard");
-                    results.remove(i--);
-                }
-            }
-        } else {
-            for (int i = 0; i < results.size(); i++) {
-                if (!results.get(i).toLowerCase().contains("ext") && !results.get(i).toLowerCase().contains("sdcard")) {
-                    Log.d(LOG_TAG, results.get(i)+" might not be extSDcard");
-                    results.remove(i--);
-                }
-            }
-        }*/
+                  
 
         String[] storageDirectories = new String[results.size()];
         for (int i = 0; i < results.size(); ++i) storageDirectories[i] = results.get(i);
@@ -216,12 +183,7 @@ public final class StorageAccessFrameworkHelper {
         return getDocumentFilePath(documentFile, null);
     }
 
-    /**
-     * Gets a file path string for a document file.
-     * childFileName can be null, or used to get the path of a file that doesn't exist yet
-     * (DocumentFiles must exist unlike java.io.file)
-     * if documentFile is null, return the empty string
-     */
+     
     public static String getDocumentFilePath(DocumentFile documentFile, String childFileName) {
 
         if (documentFile == null) {

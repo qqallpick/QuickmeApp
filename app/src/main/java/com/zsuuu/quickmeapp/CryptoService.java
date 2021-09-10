@@ -1,4 +1,4 @@
-package com.dewdrop623.androidcrypt;
+package com.zsuuu.quickmeapp;
 
 import android.annotation.TargetApi;
 import android.app.Notification;
@@ -16,16 +16,11 @@ import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
 import android.widget.Toast;
 
-/**
- * Crypto service runs a background thread that does the encryption and decryption operations.
- */
-
 public class CryptoService extends Service implements CryptoThread.ProgressDisplayer {
 
     public static final int START_FOREGROUND_ID = 1025;
 
-    //Keys for the intent extras
-    public static final String INPUT_FILE_NAME_EXTRA_KEY = "com.dewdrop623.androidcrypt.CryptoService.INPUT_URI_KEY";
+         public static final String INPUT_FILE_NAME_EXTRA_KEY = "com.dewdrop623.androidcrypt.CryptoService.INPUT_URI_KEY";
     public static final String OUTPUT_FILE_NAME_EXTRA_KEY = "com.dewdrop623.androidcrypt.CryptoService.OUTPUT_FILE_NAME_EXTRA_KEY";
     public static final String INPUT_FILENAME_KEY = "com.dewdrop623.androidcrypt.CryptoService.INPUT_FILENAME_KEY";
     public static final String OUTPUT_FILENAME_KEY = "com.dewdrop623.androidcrypt.CryptoService.OUTPUT_FILENAME_KEY";
@@ -46,16 +41,9 @@ public class CryptoService extends Service implements CryptoThread.ProgressDispl
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
 
-        /*
-        * If the user closes the activity (swiping out of recents) immediately after an operation is started, this method will get called a second time, but intent == null.
-        * Don't know why. Don't know how it doesn't trigger breakpoints, but intent==null means a NullPointerException. So this if condition handles that edge case.
-        * You might think that CryptoThread will still be running after it was started the first time this method was called.
-        * You'd be wrong. It starts, but stops when this method is called again, regardless of this if condition.
-        * It is probably a bug in Android since doing this to other applications that use services causes the same problem for them.
-        * */
+         
         if (intent == null) {
-            //if stopForeground isn't called here, a sticky notification appears that cannot be closed (there is no operation in progress) without force quitting the app.
-            stopForeground(true);
+                         stopForeground(true);
             return START_NOT_STICKY;
         }
         String inputFileName = intent.getStringExtra(INPUT_FILE_NAME_EXTRA_KEY);
@@ -78,16 +66,12 @@ public class CryptoService extends Service implements CryptoThread.ProgressDispl
         return START_STICKY;
     }
 
-    /**
-     * Called by CryptoThread to report errors
-     */
+     
     public void showToastOnGuiThread(final int msg) {
         showToastOnGuiThread(getString(msg));
     }
 
-    /**
-     * Called by CryptoThread to report errors
-     */
+     
     public void showToastOnGuiThread(final String msg) {
         final Context context = this;
         new Handler(getMainLooper()).post(new Runnable() {
@@ -101,14 +85,10 @@ public class CryptoService extends Service implements CryptoThread.ProgressDispl
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
-        // TO(never)DO: Return the communication channel to the service.
-        throw new UnsupportedOperationException("Not yet implemented");
+                 throw new UnsupportedOperationException("Not yet implemented");
     }
 
-    /*
-    * Create the notification that is displayed while the operation is ongoing.
-    * if progress < 0: displayed without progress bar
-     */
+     
     private Notification buildProgressNotification(boolean operationType, int progress, int completedMessageStringId, int minutesToCompletion, int secondsToCompletion) {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -152,9 +132,7 @@ public class CryptoService extends Service implements CryptoThread.ProgressDispl
         ((NotificationManager) getSystemService(NOTIFICATION_SERVICE)).createNotificationChannel(notificationChannel);
     }
 
-    //Implementation of CryptoThread.ProgressDisplayers interface. Called by CryptoThread to update the progress.
-    //progress is out of 100.
-    @Override
+              @Override
     public void update(boolean operationType, int progress, int completedMessageStringId, int minutesToCompletion, int secondsToCompletion) {
         NotificationManagerCompat notificationManager = (NotificationManagerCompat) NotificationManagerCompat.from(this);
         notificationManager.notify(START_FOREGROUND_ID, buildProgressNotification(operationType, progress, completedMessageStringId, minutesToCompletion, secondsToCompletion));

@@ -1,4 +1,4 @@
-package com.dewdrop623.androidcrypt;
+package com.zsuuu.quickmeapp;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -17,9 +17,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-/**
- * Used in the about page. Displays the attribution text and links for icons from www.flaticon.com.
- */
+ 
 public class IconAttributionView extends RelativeLayout {
 
     private ImageView iconAttributionImageView;
@@ -66,9 +64,7 @@ public class IconAttributionView extends RelativeLayout {
         iconCreatorTextView = (TextView) findViewById(R.id.iconCreatorTextView);
         srcLinkTextView = (TextView) findViewById(R.id.srcLinkTextView);
         licenseLinkTextView = (TextView) findViewById(R.id.licenseLinkTextView);
-        /*
-         * apply theme to ui
-         */
+         
         if (SettingsHelper.getUseDarkTeme(context)) {
             int color = context.getTheme().obtainStyledAttributes(R.style.AppThemeDark, new int[] {android.R.attr.textColorPrimary}).getColor(0,0);
             ((TextView) findViewById(R.id.iconMadeByTextView)).setTextColor(color);

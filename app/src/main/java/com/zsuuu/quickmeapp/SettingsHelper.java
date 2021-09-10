@@ -1,18 +1,16 @@
-package com.dewdrop623.androidcrypt;
+package com.zsuuu.quickmeapp;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 
-/**
- * SettingsHelper provides an interface to Android's SharedPreferences.
- */
+ 
 
 public final class SettingsHelper {
 
     public static final int FILE_ICON_VIEWER=0;
     public static final int FILE_LIST_VIEWER=1;
 
-    /*Defaults*/
+     
     public static final int FILE_DEFAULT_VIEWER=FILE_ICON_VIEWER;
     public static final boolean USE_DARK_THEME_DEFAULT = false;
     public static final int AESCRYPT_DEFAULT_VERSION = CryptoThread.VERSION_2;
@@ -48,9 +46,7 @@ public final class SettingsHelper {
         getSharedPreferencesFile(context).edit().putString(key, value).apply();
     }
 
-    /***********************************
-     * Set settings
-     */
+     
 
     public static void setAESCryptVersion(Context context, int version) {
         if (version != CryptoThread.VERSION_1 && version != CryptoThread.VERSION_2) {
@@ -59,8 +55,7 @@ public final class SettingsHelper {
         sharedPreferencesPutInt(context, AESCRYPT_VERSION_PREF, version);
     }
 
-    //set the type of file viewer using this class's integer global constants for file viewer types
-    public static void setFilePickerType(Context context, int fileViewerType) {
+         public static void setFilePickerType(Context context, int fileViewerType) {
         sharedPreferencesPutInt(context, FILE_VIEWER_TYPE, fileViewerType);
     }
 
@@ -72,16 +67,13 @@ public final class SettingsHelper {
         sharedPreferencesPutBoolean(context, USE_DARK_THEME, show);
     }
 
-    /***********************************
-     * Get settings
-     */
+     
 
     public static int getAESCryptVersion(Context context) {
         return getSharedPreferencesFile(context).getInt(AESCRYPT_VERSION_PREF, AESCRYPT_DEFAULT_VERSION);
     }
 
-    //get the integer representing the file view type (as defined by this class's global constants)
-    public static int getFilePickerType(Context context) {
+         public static int getFilePickerType(Context context) {
         return getSharedPreferencesFile(context).getInt(FILE_VIEWER_TYPE, FILE_DEFAULT_VIEWER);
     }
 
@@ -89,9 +81,7 @@ public final class SettingsHelper {
         return getSharedPreferencesFile(context).getBoolean(USE_DARK_THEME, USE_DARK_THEME_DEFAULT);
     }
 
-    /**
-     * Get the root directory of external storage. Returns null if not set.
-     */
+     
     public static String getSdcardRoot(Context context) {
         return getSharedPreferencesFile(context).getString(SDCARD_ROOT, null);
     }

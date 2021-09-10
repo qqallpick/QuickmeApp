@@ -1,4 +1,4 @@
-package com.dewdrop623.androidcrypt;
+package com.zsuuu.quickmeapp;
 
 
 import android.os.Bundle;
@@ -10,9 +10,6 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-/**
- * This fragment is the about page accessed via the action bar from MainActivityFragment.
- */
 
 public class AboutFragment extends Fragment {
 

@@ -1,8 +1,6 @@
-package com.dewdrop623.androidcrypt;
+package com.zsuuu.quickmeapp;
 
 import android.content.Intent;
-import android.content.res.TypedArray;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -13,14 +11,13 @@ import android.support.v4.provider.DocumentFile;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.content.res.AppCompatResources;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import com.dewdrop623.androidcrypt.FilePicker.FilePicker;
-import com.dewdrop623.androidcrypt.FilePicker.IconFilePicker;
-import com.dewdrop623.androidcrypt.FilePicker.ListFilePicker;
+import com.zsuuu.quickmeapp.FilePicker.FilePicker;
+import com.zsuuu.quickmeapp.FilePicker.IconFilePicker;
+import com.zsuuu.quickmeapp.FilePicker.ListFilePicker;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -105,21 +102,15 @@ public class MainActivity extends AppCompatActivity {
         super.onSaveInstanceState(outState);
     }
 
-    //choose whether the Floating Action Button should be visible or not
-    public void setFabVisible(boolean visible) {
+         public void setFabVisible(boolean visible) {
         fab.setVisibility(visible ? View.VISIBLE : View.GONE);
     }
 
-    //Called by MainActivityFragment to change the icon when switching between encryption and decryption.
-    public void setFABIcon(int drawableId) {
+         public void setFABIcon(int drawableId) {
         fab.setImageDrawable(AppCompatResources.getDrawable(this, drawableId));
     }
 
-    /**
-     * Called by MainActivityFragment when the user is picking an input or output file.
-     * initialFolder - the file picker opens with this directory
-     * defaultOutputFilename - if isOutput this will be filled in the output name field, otherwise it can be null
-     */
+     
     public void pickFile(boolean isOutput, DocumentFile initialFolder, String defaultOutputFilename) {
         FilePicker filePicker = null;
         int filePickerType = SettingsHelper.getFilePickerType(this);
@@ -141,10 +132,7 @@ public class MainActivity extends AppCompatActivity {
         getMainActivityFragment().setFile(fileParentDirectory, filename, isOutput);
     }
 
-    /**
-     * Called to display things like SettingsFragment and AboutFragment, or by pickFile to display
-     * the file picker.
-     */
+     
     public void displaySecondaryFragmentScreen(Fragment fragment, String title, String tag) {
         setFabVisible(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -155,11 +143,7 @@ public class MainActivity extends AppCompatActivity {
         mainActivityFragmentOnTop = false;
     }
 
-    /*
-    * Called by MainActivityFragment's onResume.
-    * Replace the fragment with itself so that the UI will update
-    * Bring the FAB back, remove the back arrow from the action bar, change the title
-    * */
+     
     public void returnedToMainFragment() {
         mainActivityFragmentOnTop = true;
         setFabVisible(true);
@@ -167,9 +151,7 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setTitle(R.string.app_name);
     }
 
-    /*
-    * display the given fragment
-     */
+     
     private void attachFragment(Fragment fragment, boolean addToBackStack, String tag) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -185,8 +167,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        //back button was pressed in a secondary fragment like aboutfragment or settingsfragment
-        if (item.getItemId() == android.R.id.home) {
+                 if (item.getItemId() == android.R.id.home) {
             superOnBackPressed();
             return true;
         }
@@ -203,17 +184,12 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    /**
-     * Used to implement back button behavior, even when FilePicker is visible.
-     * e.g. FilePicker usually goes up a directory in response to back button, unless it is at the
-     * file system root.
-     */
+     
     public void superOnBackPressed() {
         super.onBackPressed();
     }
 
-    /*Get the attributes for the current theme
-    * attribute argument from R.attr or android.R.attr*/
+     
     public int getDarkThemeColor(int attribute) {
         return getTheme().obtainStyledAttributes(R.style.AppThemeDark, new int[] {attribute}).getColor(0,0);
     }
