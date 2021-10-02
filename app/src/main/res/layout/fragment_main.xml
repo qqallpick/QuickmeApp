@@ -188,16 +188,20 @@
                 android:layout_height="50dp"
                 android:layout_marginTop="1dp"
                 android:text="清除"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:layout_editor_absoluteX="0dp" />
+                app:layout_constraintEnd_toStartOf="@+id/otherN"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
                 android:id="@+id/otherN"
                 style="@style/PasswordEditText"
-                android:layout_width="335dp"
+                android:layout_width="320dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="1dp"
                 android:hint="请输入对方公钥"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/qingchuotherN"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -207,64 +211,80 @@
                 android:layout_height="50dp"
                 android:layout_marginTop="1dp"
                 android:text="清除"
-                app:layout_constraintTop_toBottomOf="@+id/qingchuotherN"
-                tools:layout_editor_absoluteX="0dp" />
+                app:layout_constraintEnd_toStartOf="@+id/othermiwen"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/qingchuotherN" />
 
             <EditText
                 android:id="@+id/othermiwen"
                 style="@style/PasswordEditText"
-                android:layout_width="335dp"
+                android:layout_width="320dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="1dp"
                 android:hint="请输入对方密文"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/qingchuothermiwen"
                 app:layout_constraintTop_toBottomOf="@+id/otherN" />
 
             <Button
                 android:id="@+id/shengchengmiyao"
-                android:layout_width="135dp"
+                android:layout_width="130dp"
                 android:layout_height="wrap_content"
                 android:text="生成密钥"
-                app:layout_constraintTop_toBottomOf="@+id/othermiwen"
-                tools:layout_editor_absoluteX="0dp" />
+                app:layout_constraintEnd_toStartOf="@+id/shengchengaeskey"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/othermiwen" />
 
             <Button
                 android:id="@+id/fuzhie"
-                android:layout_width="135dp"
+                android:layout_width="130dp"
                 android:layout_height="wrap_content"
                 android:text="复制公钥"
-                app:layout_constraintTop_toBottomOf="@+id/shengchengmiyao"
-                tools:layout_editor_absoluteX="0dp" />
+                app:layout_constraintEnd_toStartOf="@+id/fuzhiaeskey"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/shengchengmiyao" />
 
             <Button
                 android:id="@+id/shengchengaeskey"
-                android:layout_width="135dp"
+                android:layout_width="130dp"
                 android:layout_height="wrap_content"
                 android:text="生成AES密文"
+                app:layout_constraintEnd_toStartOf="@+id/jiemiaeskey"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/shengchengmiyao"
                 app:layout_constraintTop_toBottomOf="@+id/othermiwen" />
 
             <Button
                 android:id="@+id/jiemiaeskey"
-                android:layout_width="135dp"
+                android:layout_width="130dp"
                 android:layout_height="wrap_content"
                 android:text="解密AESKey"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/shengchengaeskey"
                 app:layout_constraintTop_toBottomOf="@+id/othermiwen" />
 
             <Button
                 android:id="@+id/fuzhiaesmima"
-                android:layout_width="135dp"
+                android:layout_width="130dp"
                 android:layout_height="wrap_content"
                 android:text="复制AESKey"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/fuzhiaeskey"
                 app:layout_constraintTop_toBottomOf="@+id/jiemiaeskey" />
 
             <Button
                 android:id="@+id/fuzhiaeskey"
-                android:layout_width="135dp"
+                android:layout_width="130dp"
                 android:layout_height="wrap_content"
                 android:text="复制AES密文"
+                app:layout_constraintEnd_toStartOf="@+id/fuzhiaesmima"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/fuzhie"
                 app:layout_constraintTop_toBottomOf="@+id/shengchengaeskey" />
             <!--以上是修改的代码，加入非对称加密RSA，传递生成的固定密钥-->
@@ -277,44 +297,56 @@
 
             <TextView
                 android:id="@+id/aboutkeye"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_width="375dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
                 android:id="@+id/aboutkeyd"
-                android:layout_width="match_parent"
+                android:layout_width="375dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@+id/aboutkeye"
-                tools:layout_editor_absoluteX="167dp" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/aboutkeye" />
 
             <TextView
                 android:id="@+id/aboutkeyn"
-                android:layout_width="match_parent"
+                android:layout_width="375dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@+id/aboutkeyd"
-                tools:layout_editor_absoluteX="206dp" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/aboutkeyd" />
 
             <TextView
                 android:id="@+id/aboutkeyaes"
-                android:layout_width="match_parent"
+                android:layout_width="375dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@+id/aboutkeyn"
-                tools:layout_editor_absoluteX="206dp" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/aboutkeyn" />
 
             <TextView
                 android:id="@+id/aboutaeskey"
-                android:layout_width="match_parent"
+                android:layout_width="375dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@+id/aboutkeyaes"
-                tools:layout_editor_absoluteX="206dp" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/aboutkeyaes" />
 
             <TextView
                 android:id="@+id/jiemiaesmima"
-                android:layout_width="match_parent"
+                android:layout_width="375dp"
                 android:layout_height="wrap_content"
-                tools:layout_editor_absoluteX="206dp"
-                app:layout_constraintTop_toBottomOf="@+id/aboutaeskey"
-                tools:layout_editor_absoluteY="98dp" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/aboutaeskey" />
 
             <!--以上是修改的代码，加入非对称加密RSA，传递生成的固定密钥-->
         </android.support.constraint.ConstraintLayout>
