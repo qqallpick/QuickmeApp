@@ -26,8 +26,8 @@
     <string name="output_file">输出文件</string>
     <string name="passwords_do_not_match">两次密码不相同</string>
     <string name="the_input_and_output_files_must_be_different">输入文件和输出文件必须不同</string>
-    <string name="contact_info">快密Quickme基于RSA算法对AES密钥进行非对称加密，双方通过第三方通讯软件传递公钥和密文交换AES密钥，使用密钥加密文件，将加密文件通过第三方通讯软件发送给对方，使用密钥解密得到原始文件。如发现漏洞请及时联系我们 <b>allpick@qq.com</b></string>
-    <string name="version">v1.2</string>
+    <string name="contact_info">快密QuickmeApp使用RSA算法对AES密钥进行非对称加密，双方通过第三方通讯工具传递公钥和密文来交换AES密钥，使用密钥加密文件，将加密文件通过第三方通讯工具发送给对方，使用密钥解密得到原始文件。如发现漏洞请及时联系 <b>allpick@qq.com</b></string>
+    <string name="version">v1.8</string>
     <string name="action_about">关于</string>
     <string name="icon_made_by">应用制作于</string>
     <string name="from">使用说明</string>
@@ -38,7 +38,7 @@
     <string name="cc30_license_name"><u>CC 3.0 BY</u></string>
     <string name="licensed_by">项目开源</string>
     <string name="cc30_link">https://creativecommons.org/licenses/by/3.0/</string>
-    <string name="icons">快密Quickme</string>
+    <string name="icons">快密QuickmeApp</string>
     <string name="error_null_password">错误:空密码</string>
     <string name="version_1_radio_button_text">AES加密 版本1 (不推荐)</string>
     <string name="version_2_radio_button_text">AES加密 版本1 (推荐)</string>
@@ -52,7 +52,7 @@
     <string name="file_search_icon_creator_link">http://www.freepik.com</string>
     <string name="launcher_icon_creator_link">http://www.zsuuu.com/?p=1258</string>
     <string name="launcher_icon_creator_name">ZSUUU</string>
-    <string name="freeware_license_name">快密Quickme</string>
+    <string name="freeware_license_name">快密QuickmeApp</string>
     <string name="freeware_license_link">http://www.zsuuu.com/?p=1258</string>
     <string name="iconarchive_name">使用说明</string>
     <string name="iconarchive_link">http://www.zsuuu.com/?p=1305</string>
@@ -80,15 +80,15 @@
     <string name="sdcard_icon_creator_link">https://www.flaticon.com/authors/smartline</string>
     <string name="sdcard_icon_creator_name">Smartline</string>
     <string name="sdcard">SD卡</string>
-    <string name="how_to_locate_sdcard">要授予SD卡访问AndroidCrypt的权限，请在以下屏幕上选择您的SD卡的根目录。这可以在设置中随时更改。</string>
+    <string name="how_to_locate_sdcard">要授予SD卡访问AndroidCrypt的权限，请在以下屏幕上选择您的SD卡的根目录。这可以在设置中随时更改</string>
     <string name="did_not_get_sdcard_access">未获得SD卡访问权限</string>
     <string name="file_write_access_denied">文件写入访问被拒绝</string>
     <string name="file_not_found">找不到文件</string>
-    <string name="write_permission_denied_if_sdcard_grant_permission_in_settings">写权限被拒绝。如果输出到SD卡，您需要在设置中授予它权限。</string>
+    <string name="write_permission_denied_if_sdcard_grant_permission_in_settings">写权限被拒绝。如果输出到SD卡，您需要在设置中授予它权限</string>
     <string name="delete_input_file">删除输入文件</string>
-    <string name = "spanish_translation_credit">感谢为快密Quickme做出贡献的人们</string>
+    <string name = "spanish_translation_credit">感谢欧拉和阿基米德为数学作出的杰出贡献</string>
     <string name="sdcard_error">SD卡错误</string>
-    <string name="could_not_read_sdcard">无法读取SD卡。</string>
+    <string name="could_not_read_sdcard">无法读取SD卡</string>
     <string name="theme">主题</string>
     <string name="dark">黑暗</string>
     <string name="light">光明</string>

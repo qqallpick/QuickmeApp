@@ -353,10 +353,10 @@ public class MainActivityFragment extends Fragment implements CryptoThread.Progr
 //                String userpass = sp.getString("userpass", "");
 //-----------------------------------------------------------
 //                显示所有信息
-                aboutkeye.setText("该信息只显示1次，请不要保管密钥，经常跟换密钥保证通讯安全. e:"+ e);
+                aboutkeye.setText("该密钥信息只显示1次，不要在任何地方保管密钥，请经常跟换密钥保证通讯安全. e:"+ e);
                 aboutkeyd.setText("d:" + d.toString());
                 aboutkeyn.setText("n:" + n.toString());
-                aboutkeyaes.setText("aes:" + aes.toString());
+                aboutkeyaes.setText("AES密钥:" + aes.toString());
                 aboutaeskey.setText("AES密文尚未生成，请获取对方公钥后点击生成");
                 passwordEditText.setText(aes.toString());
                 confirmPasswordEditText.setText(aes.toString());
