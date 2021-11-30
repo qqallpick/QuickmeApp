@@ -5,7 +5,7 @@
 
 开源地址Github：https://github.com/qqallpick/quickmeapp
 
-使用说明：https://www.zsuuu.com/?p=1305
+快密主页：https://quickme.zsuuu.com
 
 一、安全性说明
 
