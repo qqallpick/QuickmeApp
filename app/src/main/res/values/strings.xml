@@ -36,7 +36,7 @@
     <string name="lock_unlock_icon_creator_link">https://www.flaticon.com/authors/simpleicon</string>
     <string name="flaticon_displayed_link"><u>www.flaticon.com</u></string>
     <string name="cc30_license_name"><u>CC 3.0 BY</u></string>
-    <string name="licensed_by">项目开源</string>
+    <string name="licensed_by">快密主页</string>
     <string name="cc30_link">https://creativecommons.org/licenses/by/3.0/</string>
     <string name="icons">快密QuickmeApp</string>
     <string name="error_null_password">错误:空密码</string>
@@ -49,13 +49,13 @@
     <string name="encryption_canceled">加密取消</string>
     <string name="decryption_canceled">解密取消</string>
     <string name="file_search_icon_creator_name">Freepik</string>
-    <string name="file_search_icon_creator_link">http://www.freepik.com</string>
-    <string name="launcher_icon_creator_link">http://www.zsuuu.com/?p=1258</string>
+    <string name="file_search_icon_creator_link">https://www.freepik.com</string>
+    <string name="launcher_icon_creator_link">https://www.zsuuu.com/</string>
     <string name="launcher_icon_creator_name">ZSUUU</string>
-    <string name="freeware_license_name">快密QuickmeApp</string>
-    <string name="freeware_license_link">http://www.zsuuu.com/?p=1258</string>
-    <string name="iconarchive_name">使用说明</string>
-    <string name="iconarchive_link">http://www.zsuuu.com/?p=1305</string>
+    <string name="freeware_license_name">QuickmeApp</string>
+    <string name="freeware_license_link">https://quickme.zsuuu.com/</string>
+    <string name="iconarchive_name">HOWTOUSE</string>
+    <string name="iconarchive_link">https://b23.tv/KYRETUI</string>
     <string name="ok">Ok</string>
     <string name="refresh">恢复</string>
     <string name="file_picker_display">文件选择器样式</string>

@@ -15,7 +15,7 @@ import org.aes.crypt.AESCrypt;
 
 public class CryptoThread extends Thread {
 
-         public static boolean operationInProgress = false;
+    public static boolean operationInProgress = false;
 
      
     public static final boolean OPERATION_TYPE_ENCRYPTION = true;

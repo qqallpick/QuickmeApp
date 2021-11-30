@@ -5,7 +5,7 @@ import android.support.v4.provider.DocumentFile;
  
 
 public class GlobalDocumentFileStateHolder {
-         private static DocumentFile savedInputParentDirectoryForRotate = null;
+    private static DocumentFile savedInputParentDirectoryForRotate = null;
     private static DocumentFile savedOutputParentDirectoryForRotate = null;
 
          private static DocumentFile savedCurrentDirectoryForRotate = null;

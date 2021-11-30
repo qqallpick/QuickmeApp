@@ -316,8 +316,8 @@ public class MainActivityFragment extends Fragment implements CryptoThread.Progr
 //                Toast.makeText(context.getApplicationContext(), "生成密钥按钮启动", Toast.LENGTH_SHORT).show();
 //            生成大质数P、Q
                 Random ran = new Random();
-                BigInteger inputp = BigInteger.probablePrime(1700, ran);
-                BigInteger inputq = BigInteger.probablePrime(1700, ran);
+                BigInteger inputp = BigInteger.probablePrime(699, ran);
+                BigInteger inputq = BigInteger.probablePrime(699, ran);
 //            默认公钥e：65537，为公认加密标准
                 int e = 65537;
 //                xianshi_e.setText("公钥e:65537");

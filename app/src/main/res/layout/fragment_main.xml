@@ -184,10 +184,14 @@
 
             <Button
                 android:id="@+id/qingchuotherN"
+                style="@style/Widget.AppCompat.Button.Colored"
                 android:layout_width="70dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="1dp"
+                android:shadowColor="#ffffff"
                 android:text="清除"
+                android:textSize="12sp"
+                android:textStyle="normal"
                 app:layout_constraintEnd_toStartOf="@+id/otherN"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
@@ -207,10 +211,13 @@
 
             <Button
                 android:id="@+id/qingchuothermiwen"
+                style="@style/Widget.AppCompat.Button.Colored"
                 android:layout_width="70dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="1dp"
                 android:text="清除"
+                android:textSize="12sp"
+                android:textStyle="normal"
                 app:layout_constraintEnd_toStartOf="@+id/othermiwen"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
@@ -230,9 +237,12 @@
 
             <Button
                 android:id="@+id/shengchengmiyao"
+                style="@style/Widget.AppCompat.Button.Colored"
                 android:layout_width="130dp"
                 android:layout_height="wrap_content"
                 android:text="生成RSA密钥"
+                android:textSize="12sp"
+                android:textStyle="normal"
                 app:layout_constraintEnd_toStartOf="@+id/shengchengaeskey"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
@@ -240,9 +250,12 @@
 
             <Button
                 android:id="@+id/fuzhie"
+                style="@style/Widget.AppCompat.Button.Colored"
                 android:layout_width="130dp"
                 android:layout_height="wrap_content"
                 android:text="复制RSA公钥"
+                android:textSize="12sp"
+                android:textStyle="normal"
                 app:layout_constraintEnd_toStartOf="@+id/fuzhiaeskey"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
@@ -250,9 +263,12 @@
 
             <Button
                 android:id="@+id/shengchengaeskey"
+                style="@style/Widget.AppCompat.Button.Colored"
                 android:layout_width="130dp"
                 android:layout_height="wrap_content"
                 android:text="生成AES密文"
+                android:textSize="12sp"
+                android:textStyle="normal"
                 app:layout_constraintEnd_toStartOf="@+id/jiemiaeskey"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/shengchengmiyao"
@@ -260,9 +276,12 @@
 
             <Button
                 android:id="@+id/jiemiaeskey"
+                style="@style/Widget.AppCompat.Button.Colored"
                 android:layout_width="130dp"
                 android:layout_height="wrap_content"
                 android:text="解密AESKey"
+                android:textSize="12sp"
+                android:textStyle="normal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/shengchengaeskey"
@@ -270,9 +289,12 @@
 
             <Button
                 android:id="@+id/fuzhiaesmima"
+                style="@style/Widget.AppCompat.Button.Colored"
                 android:layout_width="130dp"
                 android:layout_height="wrap_content"
                 android:text="复制AESKey"
+                android:textSize="12sp"
+                android:textStyle="normal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/fuzhiaeskey"
@@ -280,9 +302,12 @@
 
             <Button
                 android:id="@+id/fuzhiaeskey"
+                style="@style/Widget.AppCompat.Button.Colored"
                 android:layout_width="130dp"
                 android:layout_height="wrap_content"
                 android:text="复制AES密文"
+                android:textSize="12sp"
+                android:textStyle="normal"
                 app:layout_constraintEnd_toStartOf="@+id/fuzhiaesmima"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/fuzhie"

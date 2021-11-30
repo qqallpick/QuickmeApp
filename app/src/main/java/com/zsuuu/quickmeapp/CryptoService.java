@@ -20,7 +20,7 @@ public class CryptoService extends Service implements CryptoThread.ProgressDispl
 
     public static final int START_FOREGROUND_ID = 1025;
 
-         public static final String INPUT_FILE_NAME_EXTRA_KEY = "com.dewdrop623.androidcrypt.CryptoService.INPUT_URI_KEY";
+    public static final String INPUT_FILE_NAME_EXTRA_KEY = "com.dewdrop623.androidcrypt.CryptoService.INPUT_URI_KEY";
     public static final String OUTPUT_FILE_NAME_EXTRA_KEY = "com.dewdrop623.androidcrypt.CryptoService.OUTPUT_FILE_NAME_EXTRA_KEY";
     public static final String INPUT_FILENAME_KEY = "com.dewdrop623.androidcrypt.CryptoService.INPUT_FILENAME_KEY";
     public static final String OUTPUT_FILENAME_KEY = "com.dewdrop623.androidcrypt.CryptoService.OUTPUT_FILENAME_KEY";
